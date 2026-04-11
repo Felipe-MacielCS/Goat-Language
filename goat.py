@@ -97,9 +97,11 @@ while program[pc] != "SLAUGHTER": # Terminates
         stack.push(b-a)
     elif opcode == "BLEAT": # PRINT
         print(stack.pop()) 
-    elif opcode == "BUCKLING": # READ one character (buckling is a baby goat)
-        char = input()
-        stack.push(ord(char))
+    elif opcode == "BUCKLING":
+        text = input()
+        stack.push(0)
+        for ch in text:
+            stack.push(ord(ch))
     elif opcode == "ABSORB": # READ 
         number = int(input())
         stack.push(number)
