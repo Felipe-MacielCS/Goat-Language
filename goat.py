@@ -17,7 +17,6 @@ label_tracker = {} # keep tracks of which index in our program list a label poin
 for line in program_lines:
     parts = line.split(" ")
     opcode = parts[0]
-
     # check for empty line 
     if opcode == "":
         continue

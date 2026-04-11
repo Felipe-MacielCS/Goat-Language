@@ -1,0 +1,2 @@
+BLEAT "Hello World"
+SLAUGHTER
