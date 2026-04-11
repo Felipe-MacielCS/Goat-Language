@@ -104,20 +104,20 @@ while program[pc] != "SLAUGHTER": # Terminates
         number = int(input())
         stack.push(number)
     elif opcode == "CHECK_FEET": # JUMP.EQ.0
-        number = stack.top()
+        number = stack.pop()
         if number == 0:
             pc = label_tracker[program[pc]]
         else:
             pc += 1
     elif opcode == "CHECK_HORNS": # JUMP.GT.0
-        number = stack.top()
+        number = stack.pop()
         if number > 0:
             pc = label_tracker[program[pc]]
         else:
             pc += 1
     elif opcode == "GOAT_CHAR": # Print char
         value = stack.pop()
-        print(chr(value))
+        print(chr(value), end="")
     elif opcode == "GOAT_INT": # Print int
         value = stack.pop()
         print(value)
@@ -125,3 +125,20 @@ while program[pc] != "SLAUGHTER": # Terminates
         a = stack.pop()
         b = stack.pop()
         stack.push(a * b)
+    elif opcode == "CLONE":  # DUPLICATION
+        stack.push(stack.top())
+    elif opcode == "HEADBUTT": # SWAP
+        a = stack.pop()
+        b = stack.pop()
+        stack.push(a)
+        stack.push(b)
+    elif opcode == "HERD_AWAY": # Moves bottom to top
+        bottom = stack.buf[0]
+        for i in range(stack.sp):
+            stack.buf[i] = stack.buf[i + 1]
+        stack.buf[stack.sp] = bottom
+    elif opcode == "HERD_HOME": # Moves top to bottom
+        top = stack.buf[stack.sp]
+        for i in range(stack.sp, 0, -1):
+            stack.buf[i] = stack.buf[i - 1]
+        stack.buf[0] = top
