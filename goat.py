@@ -64,7 +64,7 @@ class Stack:
         self.sp += 1 # sp = stack pointer
         self.buf[self.sp] = number
 
-    def pop(self, number):
+    def pop(self):
         number = self.buf[self.sp]
         self.sp -= 1
         return number
@@ -96,21 +96,22 @@ while program[pc] != "SLAUGHTER": # Terminates
         b = stack.pop()
         stack.push(b-a)
     elif opcode == "BLEAT": # PRINT
-        string_literal = program[pc]
-        pc += 1
-        print(string_literal)
+        print(stack.pop()) 
     elif opcode == "ABSORB": # READ
-        number = int(input())
-        stack.push(number)
-    elif opcode == "CHECK FEET": # JUMP.EQ.0
+        char = input()
+        stack.push(ord(char))
+    elif opcode == "CHECK_FEET": # JUMP.EQ.0
         number = stack.top()
         if number == 0:
             pc = label_tracker[program[pc]]
         else:
             pc += 1
-    elif opcode == "CHECK HORNS": # JUMP.GT.0
+    elif opcode == "CHECK_HORNS": # JUMP.GT.0
         number = stack.top()
         if number > 0:
             pc = label_tracker[program[pc]]
         else:
             pc += 1
+    elif opcode == "GOATED":
+        value = stack.pop()
+        print(chr(value))
