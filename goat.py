@@ -97,9 +97,12 @@ while program[pc] != "SLAUGHTER": # Terminates
         stack.push(b-a)
     elif opcode == "BLEAT": # PRINT
         print(stack.pop()) 
-    elif opcode == "ABSORB": # READ
+    elif opcode == "BUCKLING": # READ one character (buckling is a baby goat)
         char = input()
         stack.push(ord(char))
+    elif opcode == "ABSORB": # READ 
+        number = int(input())
+        stack.push(number)
     elif opcode == "CHECK_FEET": # JUMP.EQ.0
         number = stack.top()
         if number == 0:
@@ -112,6 +115,13 @@ while program[pc] != "SLAUGHTER": # Terminates
             pc = label_tracker[program[pc]]
         else:
             pc += 1
-    elif opcode == "GOATED":
+    elif opcode == "GOAT_CHAR": # Print char
         value = stack.pop()
         print(chr(value))
+    elif opcode == "GOAT_INT": # Print int
+        value = stack.pop()
+        print(value)
+    elif opcode == "BREED":  # MULTIPLY
+        a = stack.pop()
+        b = stack.pop()
+        stack.push(a * b)
