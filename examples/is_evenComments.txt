@@ -1,0 +1,23 @@
+ABSORB // gets the number
+
+loop:
+CLONE // clone the number
+CHECK_FEET even // check if 0 and pops it, if 0 that means it is even
+
+EAT 2 // add 2 to the stack
+SHEAR // subtracts 
+
+CLONE // clone for temp number
+CHECK_HORNS loop // if greater than 0, loop it
+CHECK_FEET even // if == 0, it is even
+
+// add 1 or 0, and print true or false
+odd:
+EAT 0
+GOAT_INT
+SLAUGHTER
+
+even:
+EAT 1
+GOAT_INT
+SLAUGHTER

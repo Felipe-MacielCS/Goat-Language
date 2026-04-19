@@ -2,7 +2,6 @@ ABSORB
 
 loop:
 CLONE
-CHECK_FEET even
 
 EAT 2
 SHEAR

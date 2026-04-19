@@ -75,6 +75,7 @@ class Stack:
     
 pc = 0
 stack = Stack (256)
+memory = {}
 
 while program[pc] != "SLAUGHTER": # Terminates
     opcode = program[pc]
@@ -96,8 +97,12 @@ while program[pc] != "SLAUGHTER": # Terminates
         b = stack.pop()
         stack.push(b-a)
     elif opcode == "BLEAT": # PRINT
-        print(stack.pop()) 
-    elif opcode == "BUCKLING":
+        string_literal = program[pc]
+        pc += 1
+        print(string_literal) 
+    elif opcode == "NOT_A_CAT": # CAT
+        print(input())
+    elif opcode == "SWALLOW": # TAKE INPUT AND STORE IN THE STACK
         text = input()
         stack.push(0)
         for ch in text:
@@ -144,3 +149,23 @@ while program[pc] != "SLAUGHTER": # Terminates
         for i in range(stack.sp, 0, -1):
             stack.buf[i] = stack.buf[i - 1]
         stack.buf[0] = top
+
+    # PALINDROMEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+
+    elif opcode == "HORN_AND_FOOT":  # compare top and bottom, if equal remove both
+        top = stack.pop()           # remove top char
+        bottom = stack.buf[1]       # peek at first char 
+
+        for i in range(1, stack.sp): # SHIFTS everything to left to pop it
+            stack.buf[i] = stack.buf[i + 1]
+        stack.sp -= 1
+        if top == bottom:
+            stack.push(1)
+        else:
+            stack.push(0)
+
+    elif opcode == "CHECK_GOAT_PAIRS":
+        if stack.sp + 1 <= 2:
+            stack.push(1)
+        else:
+            stack.push(0)

@@ -1,0 +1,20 @@
+BLEAT "Enter a string:"
+SWALLOW
+
+loop_start:
+    CHECK_GOAT_PAIRS
+    CHECK_HORNS is_palindrome
+
+    HORN_AND_FOOT
+    CHECK_FEET not_palindrome
+
+    EAT 1
+    CHECK_HORNS loop_start
+
+is_palindrome:
+BLEAT "BEEHHHHHH"
+SLAUGHTER
+
+not_palindrome:
+BLEAT "NOT BEEEEEHHHHH"
+SLAUGHTER

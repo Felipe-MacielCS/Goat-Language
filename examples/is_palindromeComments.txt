@@ -1,0 +1,20 @@
+BLEAT "Enter a string:"
+SWALLOW // stores the word
+
+loop_start:
+    CHECK_GOAT_PAIRS // checks if there two pairs of letters or more in the stack
+    CHECK_HORNS is_palindrome // check if the stack value is greater than 0 
+
+    HORN_AND_FOOT // check if top equals bottom
+    CHECK_FEET not_palindrome // if equals 0, it is not a palindrome
+
+    EAT 1 // push 1 to the stack
+    CHECK_HORNS loop_start // check if there is more to go for 
+
+is_palindrome:
+BLEAT "BEEHHHHHH"
+SLAUGHTER
+
+not_palindrome:
+BLEAT "NOT BEEEEEHHHHH"
+SLAUGHTER

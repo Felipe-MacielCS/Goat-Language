@@ -1,0 +1,11 @@
+SWALLOW // stores the word
+
+loop:
+CLONE // clone the top of stack (last letter)
+CHECK_FEET end // checl if there are more letters
+CLONE // clone again to print it
+GOAT_CHAR // print it
+CHECK_HORNS loop // check if there are more letters (=0)
+
+end:
+SLAUGHTER

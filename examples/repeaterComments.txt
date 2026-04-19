@@ -1,0 +1,21 @@
+SWALLOW // takes the character and stores it on the stack
+ABSORB // takes the number of times to be repeated
+
+loop:
+CLONE // duplicates the top of the stack 
+CHECK_FEET end // checks if the count is 0 
+
+HERD_HOME // puts the character at the top of stack and the counter at the bottom
+CLONE // clones the character at the top so GOAT_CHAR can print it and pop it
+GOAT_CHAR // print the character and pops it 
+HERD_AWAY // put back the character as first in the stack and number at the top
+
+EAT 1 // push one to stack
+SHEAR // subtracts one of the counter
+
+// check if the counter is 0  
+CLONE 
+CHECK_HORNS loop
+
+end:
+SLAUGHTER
