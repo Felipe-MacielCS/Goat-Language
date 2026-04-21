@@ -1,6 +1,6 @@
 import sys
 
-# read the argumest, interpret from this file
+# read arguments, interpret from this file
 program_filepath = sys.argv[1]
 
 # TOKENIZATION -------------------------------------------------------------------------------------------------------------------
@@ -75,7 +75,6 @@ class Stack:
     
 pc = 0
 stack = Stack (256)
-memory = {}
 
 while program[pc] != "SLAUGHTER": # Terminates
     opcode = program[pc]
@@ -84,14 +83,9 @@ while program[pc] != "SLAUGHTER": # Terminates
     if opcode == "EAT": # PUSH
         number = program[pc]
         pc += 1
-
         stack.push(number)
     elif opcode == "POOP": # POP
         stack.pop()
-    elif opcode == "LACTATE": # ADD
-        a = stack.pop()
-        b = stack.pop()
-        stack.push(a+b)
     elif opcode == "SHEAR": # SUB
         a = stack.pop()
         b = stack.pop()
@@ -164,7 +158,7 @@ while program[pc] != "SLAUGHTER": # Terminates
         else:
             stack.push(0)
 
-    elif opcode == "CHECK_GOAT_PAIRS":
+    elif opcode == "CHECK_GOAT_PAIRS": # checks if equals to 0 or less
         if stack.sp + 1 <= 2:
             stack.push(1)
         else:
