@@ -1,6 +1,6 @@
 # Goat-Language
 
-EAT n = Push number n onto the stack  
+`EAT n` = Push number n onto the stack  
 POOP = Pop the top value of the stack  
 CLONE = Duplicate the top value of the stack  
 HEADBUTT = Swap the top two values of the stack  
