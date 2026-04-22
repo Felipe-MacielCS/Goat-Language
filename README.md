@@ -25,4 +25,4 @@
 How to run:
 
 Type in terminal:
-python goat.py examples/example.txt
+`python goat.py examples/example.txt`
