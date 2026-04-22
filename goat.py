@@ -95,7 +95,8 @@ while program[pc] != "SLAUGHTER": # Terminates
         pc += 1
         print(string_literal) 
     elif opcode == "NOT_A_CAT": # CAT
-        print(input())
+        while stack.sp >= 0:
+            print(chr(stack.pop()))
     elif opcode == "SWALLOW": # TAKE INPUT AND STORE IN THE STACK
         text = input()
         stack.push(0)
@@ -163,3 +164,4 @@ while program[pc] != "SLAUGHTER": # Terminates
             stack.push(1)
         else:
             stack.push(0)
+            
